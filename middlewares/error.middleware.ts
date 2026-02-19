@@ -35,7 +35,7 @@ export const errorMiddleware: ErrorRequestHandler = (err, req: Request, res: Res
             });
         }
 
-        res.status(500).json({ success: false, message: 'Something went wrong.' });
+        res.status(500).json({ success: false, message: err.message ||'Something went wrong.' });
     } catch (error) {
         next(error)
     }
